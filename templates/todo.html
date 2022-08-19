@@ -2,15 +2,16 @@
 {% block content %}
 
 <div class="todo-wrapper">
+    {% for todo in object_list %}
     <div class="todo-item">
-        <h3>Complete main UI components</h3>
-        <p class="descript"> Would be good if we include every component in the design system</p>
+        <h3>{{todo.title}}</h3>
+        <p class="descript">{{todo.description}}</p>
         
         <div class="Extra">
       
-                <span class="extra-items date">6 Apr 2022</span> 
+                <span class="extra-items date">{{todo.due_date}}</span> 
       
-            <span class="extra-items assignee"> Esther Howard</span>
+            <!-- <span class="extra-items assignee"> Esther Howard</span> -->
         </div>
         <div class="actions">
             <button class="btn edit">
@@ -22,8 +23,16 @@
         </div>
        
     </div>
-
+    {% endfor %}
+   
 </div>
-<button class="new-todo">Add Todo</button>
 
+<div class="container">
+    <label for="">Title</label>
+    <input type="text" class="text-title">
+    <br>
+    <label for="">description</label>
+    <input type="text" class="text-space">
+    <button class="new-todo">Add Todo</button>
+</div>
 {% endblock content%}
