@@ -16,7 +16,8 @@ class DetailTodo(generic.UpdateView):
 def todoList(request):
     form = TodoForm()
     if(request.method == "GET"):
-        query_set = Todo.objects.all()
+        set = Todo.objects.all()
+        query_set = set[len(set)-3: len(set)]
         context = {"form": form, "todos": query_set}
         return render(request, "todo.html", context)
 
