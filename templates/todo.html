@@ -6,7 +6,11 @@
     <div class="todo-item-parent">
         <div class="todo-item">
             <!-- <div class="divider"></div> -->
-            <strong>{{todo.title}}</strong>
+            <strong>
+                <a href="{% url 'todo-list' todo.id %}">
+                    {{todo.title}}
+                </a>
+            </strong>
             <p class="descript">{{todo.description|truncatechars:50}}</p>
             
             <div class="Extra">

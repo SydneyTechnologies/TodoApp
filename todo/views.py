@@ -4,17 +4,14 @@ from . models import Todo
 from . form import TodoForm
 # Create your views here.
 
-# class TodoList(generic.ListView):
-#     model = Todo
-#     template_name ="todo.html"
-
-class DetailTodo(generic.UpdateView):
-    model = Todo
-    template_name = "detail.html"
 
 
-def todoList(request):
+def todoList(request, pk=None):
     form = TodoForm()
+    target = request.session['target'] = pk
+    if target != None:
+        todo = Todo.objects.get(pk=target)
+        form = TodoForm(instance=todo)
     if(request.method == "GET"):
         set = Todo.objects.all()
         query_set = set[len(set)-3: len(set)]
@@ -23,9 +20,14 @@ def todoList(request):
 
 def createTodo(request):
     form = TodoForm()
+    target = request.session.get('target', None)
     if request.method == "POST":
-        form = TodoForm(request.POST)
+        if  target != None: 
+            form = TodoForm(request.POST, instance = Todo.objects.get(pk=target))
+        else:
+            form = TodoForm(request.POST)
         if form.is_valid():
+            target = request.session['target'] = None
             form.save()
             return redirect("todo-list")
         else:
