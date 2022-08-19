@@ -14,7 +14,8 @@ def todoList(request, pk=None):
         form = TodoForm(instance=todo)
     if(request.method == "GET"):
         set = Todo.objects.all()
-        query_set = set[len(set)-3: len(set)]
+      
+        query_set = set[0: len(set)] if len(set) < 3 else set[len(set) -3 : len(set)]
         context = {"form": form, "todos": query_set}
         return render(request, "todo.html", context)
 
