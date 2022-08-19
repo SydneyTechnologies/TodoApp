@@ -7,6 +7,6 @@ class Todo(models.Model):
     description = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateField(auto_now=True)
-    due_date = models.DateTimeField()
+    # due_date = models.DateTimeField(aut
     def __str__(self) -> str:
         return self.title
