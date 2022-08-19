@@ -1,6 +1,7 @@
 body{
     background-color: #EEEEF3;
     font-family: 'Poppins';
+    font-size: small;
 }
 .todo-wrapper{
     box-shadow: 15px 10px 20px rgb(197, 196, 196);
@@ -16,15 +17,11 @@ h3{
     margin-top: 10px;
     margin-bottom: 0px;
 }
-hr{
-    width: 95%;
-    
-}
 .todo-item{
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 8px;
 }
 .descript{
     color: grey;
@@ -44,6 +41,20 @@ hr{
 .actions{
     display: flex;
     justify-content: end;
+}
+.new-todo{
+    margin-top: 5px;
+    margin-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #682EE4;
+    border: solid 1px transparent;
+    border-radius: 5px;
+    color: white;
+    font-family: 'poppins';
+    font-weight: bold;
 }
 .btn{
     margin-top: 5px;
