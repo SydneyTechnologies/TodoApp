@@ -47,22 +47,30 @@ h3{
     display: flex;
     justify-content: end;
 }
-.new-todo{
-    
+
+
+
+.action-btn{
     width: 95%;
     margin-left: 2.5%;
     margin-right: 2.5%;
-    margin-top: 10px;
+    margin-top: 2px;
     margin-bottom: 10px;
     box-sizing: border-box;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color: #682EE4;
     border: solid 1px transparent;
     border-radius: 5px;
     color: white;
     font-family: 'poppins';
     font-weight: bold;
+}
+.save{
+    
+    background-color: #682EE4;
+}
+.delete{
+    background-color: rgb(245, 78, 78);
 }
 .btn{
     margin-top: 5px;
