@@ -79,17 +79,25 @@ h3{
 .text-space{
     height: 70px;
     margin-bottom: 10px;
-    width: 90%;
+    width: 85%;
     margin-left: 5%;
     margin-right: 5%;
-    border: solid 1px gray;
     border-radius: 3px;
-    
+    resize: none;
+    font-family: 'Poppins';
+    border: none;
+    font-size: small;
+    background-color: #f6f6fd;
+    padding: 5px 2.5%;
 }
 .text-title{
-    width: 90%;
-    margin: 0px 5%;
-    
+    width: 85%;
+    margin: 5px 5%;
+    font-family: 'Poppins';
+    border: none;
+    font-size: small;
+    background-color: #f6f6fd;
+    padding: 5px 2.5%;
 }
 .container{
     border-radius: 5px;
@@ -102,9 +110,10 @@ h3{
 
 label{
     margin: 0px 5%;
+    font-family: 'poppins';
+    font-weight: bold;
 }
 .radio{
-    /* position: fixed; */
     margin-right: 20px;
 }
 a{

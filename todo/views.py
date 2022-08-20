@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.views import generic
+from django.views.generic.edit import UpdateView
 from . models import Todo
 from . form import TodoForm
 # Create your views here.
@@ -15,7 +16,7 @@ def todoList(request, pk=None):
     if(request.method == "GET"):
         set = Todo.objects.all()
       
-        query_set = set[0: len(set)] if len(set) < 3 else set[len(set) -3 : len(set)]
+        query_set = set[:5]
         context = {"form": form, "todos": query_set}
         return render(request, "todo.html", context)
 
@@ -35,3 +36,13 @@ def createTodo(request):
             return redirect("todo-list")
     else:
         return HttpResponse("not working men")
+
+
+class EditTodo(UpdateView):
+    model = Todo
+    fields = "__all__"
+    template_name = 'detail.html'
+
+    def get_form(self):
+        form = TodoForm()
+        return form

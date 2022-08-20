@@ -2,9 +2,15 @@
 {% block content %}
 
 <div class="todo-wrapper">
-    <h1>
-        Update View
-    </h1>
+    <!-- <h3 style="text-align: center;">UPDATE</h3> -->
+    <div class="container">
+        <form action="{% url 'create' %}" method="POST">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" class="new-todo" value="Add Todo">
+        </form>
+    
+    </div>
 </div>
 
 
