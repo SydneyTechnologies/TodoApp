@@ -1,3 +1,4 @@
+from warnings import catch_warnings
 from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse_lazy
 from django.views import generic
@@ -40,4 +41,5 @@ class EditTodo(UpdateView):
 def deleteTodo(request, pk):
    todo_instance = Todo.objects.get(pk =pk)
    todo_instance.delete()
+
    return redirect('list-todo')

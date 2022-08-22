@@ -2,15 +2,15 @@
 {% block content %}
 <div class="todo-wrapper">
     <div class="nav">
-        <div class="label task active" onclick="select( this, 'task_list')">
+        <div id= "todo_button" class="label todo" onclick="select( this, 'todo_list')">
             Tasks
         </div>
-        <div class="label completed" onclick="select(this, 'completed_list')">
+        <div id= "complete_button"class="label completed" onclick="select(this, 'completed_list')">
             Completed
         </div>
     </div>
     {% for todo in todos %}
-    <div class="todo-item-parent task_list">
+    <div class="todo-item-parent todo_list">
         <div class="todo-item">
             <strong>
                 <a href="{% url 'edit-todo' todo.id %}">
@@ -19,7 +19,18 @@
             </strong>
             <p class="descript">{{todo.description|truncatechars:50}}</p>
         </div>
-        <input type="radio" name="" id="" class="radio">
+        <form action="" method="post">
+            {% csrf_token %}
+            <button> completed </button>
+        </form>
+        
+    </div>
+    
+    {% empty %}
+    <div class="todo-item-parent todo_list">
+        <div class="todo-item">
+            <p class="descript">There are no todos present at this time</p>
+        </div>
     </div>
 
     {% endfor %}
@@ -32,9 +43,16 @@
                 </a>
             </strong>
             <p class="descript">{{todo.description|truncatechars:50}}</p>
-        </div>
-        <input type="radio" name="" id="" class="radio">
     </div>
+    <input type="radio" name="" id="" class="radio">
+    </div>
+    {% empty %}
+    <div class="todo-item-parent completed_list off">
+        <div class="todo-item">
+            <p class="descript">You have no completed todos</p>
+        </div>
+    </div>
+    
 
     {% endfor %}
 </div>

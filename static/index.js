@@ -4,7 +4,7 @@ function select(obj, target){
         if(tab_buttons[j].classList.contains(target)){
             tab_buttons[j].classList.remove("off")
             let activeElements = document.getElementsByClassName("active")
-            console.log(activeElements)
+            console.log(activeElements.length)
             Array.from(activeElements).forEach(element => {
                 element.classList.remove('active')
             });
@@ -15,3 +15,7 @@ function select(obj, target){
         }
     }
 }
+
+const starting_item = "todo_list"
+task_button = document.getElementById("todo_button")
+select(task_button, starting_item)

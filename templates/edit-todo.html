@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+    {% extends 'base.html' %}
 {% block content %}
 
 <div class="todo-wrapper">
@@ -7,12 +7,13 @@
         <form method="POST">
             {% csrf_token %}
             {{form}}
-            <a href='{% url "delete-todo" object.id %}' >
-                <button class="action-btn delete">Delete</button>
-            </a>
+           
             <input type="submit" class="action-btn save" value="save changes">
         </form>
-    
+        <form action="{% url 'delete-todo' object.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" class="action-btn delete" value="Delete">
+        </form>
     </div>
 </div>
 
