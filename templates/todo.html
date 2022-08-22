@@ -24,11 +24,11 @@
         </div>
         <form action="{% url 'complete-todo' todo.id %}" method="post">
             {% csrf_token %}
-            <div class="check-box">
+            <button class="check-box">
                 <span>
-                 &check;
+                    <i class="fa fa-check icon" style="color: #682EE4;"></i>
                 </span>
-             </div>
+             </button>
              
              
             <!-- <input type="submit" value="complete"> -->

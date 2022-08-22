@@ -165,6 +165,8 @@ a{
     height: 20px;
     border: solid 1px gray;
     justify-content: center;
+    padding: auto 0px;
+    background-color: transparent;
 }
 
 span{
@@ -172,6 +174,10 @@ span{
     visibility: hidden;
 }
 .check-box:hover span{
+    display: block;
+    visibility: visible;
+}
+.check-box:focus span{
     display: block;
     visibility: visible;
 }
