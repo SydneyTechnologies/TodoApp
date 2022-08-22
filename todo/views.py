@@ -38,8 +38,14 @@ class EditTodo(UpdateView):
     success_url = reverse_lazy('list-todo')
 
 
+def completeTodo(request, pk):
+    if request.method == "POST":
+        todo_instance = Todo.objects.get(pk = pk)
+        todo_instance.completed = True
+        todo_instance.save()
+        return redirect('list-todo')
+
 def deleteTodo(request, pk):
    todo_instance = Todo.objects.get(pk =pk)
    todo_instance.delete()
-
    return redirect('list-todo')

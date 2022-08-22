@@ -156,3 +156,22 @@ a{
 .off{
     display: none;
 }
+
+.check-box{
+    margin-right: 20px;
+    display: flex;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: solid 1px gray;
+    justify-content: center;
+}
+
+span{
+    display: none;
+    visibility: hidden;
+}
+.check-box:hover span{
+    display: block;
+    visibility: visible;
+}
