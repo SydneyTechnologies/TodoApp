@@ -5,13 +5,13 @@ body{
 }
 .todo-wrapper{
     box-shadow: 15px 10px 20px rgb(197, 196, 196);
-    width: fit-content;
+    max-width: 400px;
     background-color: #FFFFFF;
     padding: 20px, 5px, 20px, 5px;
     border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 h3{
     margin: 0px;
@@ -127,4 +127,32 @@ label{
 a{
     text-decoration: none;
     color: black;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0px;
+    padding-right: auto;
+    padding-left: auto;
+}
+.label{
+    border-radius: 5px;
+    width: 90%;
+    text-align: center;
+    margin: 0px 5%;
+    font-weight: bold;
+    padding: 2px;
+    color: gray;
+    border: none;
+    font-family: 'poppins';
+}
+
+.active{
+    background-color: #682EE4;
+    color: white;
+}
+
+.off{
+    display: none;
 }

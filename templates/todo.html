@@ -1,39 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <div class="todo-wrapper">
+    <div class="nav">
+        <div class="label task active" onclick="select( this, 'task_list')">
+            Tasks
+        </div>
+        <div class="label completed" onclick="select(this, 'completed_list')">
+            Completed
+        </div>
+    </div>
     {% for todo in todos %}
-    <div class="todo-item-parent">
+    <div class="todo-item-parent task_list">
         <div class="todo-item">
-            <!-- <div class="divider"></div> -->
             <strong>
                 <a href="{% url 'edit-todo' todo.id %}">
                     {{todo.title}}
                 </a>
             </strong>
             <p class="descript">{{todo.description|truncatechars:50}}</p>
-            
-            <div class="Extra">
-          
-                    <!-- <span class="extra-items">{{todo.due_date}}</span>  -->
-          
-                <!-- <span class="extra-items assignee"> Esther Howard</span> -->
-            </div>
-            <!-- <div class="actions">
-                <button class="btn edit">
-                   edit
-                </button>
-                <button class="btn delete">
-                   delete
-                </button>
-            </div> -->
-           
         </div>
         <input type="radio" name="" id="" class="radio">
     </div>
 
     {% endfor %}
-   
+    {% for todo in completed %}
+    <div class="todo-item-parent completed_list off">
+        <div class="todo-item">
+            <strong>
+                <a href="{% url 'edit-todo' todo.id %}">
+                    {{todo.title}}
+                </a>
+            </strong>
+            <p class="descript">{{todo.description|truncatechars:50}}</p>
+        </div>
+        <input type="radio" name="" id="" class="radio">
+    </div>
+
+    {% endfor %}
 </div>
 
 <div class="container">

@@ -11,17 +11,22 @@ from . form import TodoForm
 def todoList(request):
     form = TodoForm()
     if(request.method == "GET"):
-        query_set = Todo.objects.all()[:5]
-        context = {"form": form, "todos": query_set}
+        query_set = Todo.objects.all()
+        todos = query_set.filter(completed = False)[:5]
+        completed = query_set.filter(completed = True)[:5]
+        context = {"form": form, "todos": todos, "completed": completed }
         return render(request, "todo.html", context)
 
 def createTodo(request):
     form = TodoForm()
     if request.method == "POST":
+        form = TodoForm(request.POST)
         if form.is_valid():
             form.save()
+            # print("is working")
             return redirect("list-todo")
         else:
+            # print("something is not working")
             return redirect("list-todo")
 
 
