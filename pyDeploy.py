@@ -82,7 +82,7 @@ if args.platform == "railway":
     print(f"Configuring files for {args.platform} deployment")
     requirements = subprocess.check_output([sys.executable, "-m", "pip", "freeze"])
     print("Detecting project type")
-    dependency = detect_project(requirements.decode("utf-8"))
+    dependency = detect_project(requirements.decode("utf-8").lower())
     version = detect_python_version()
     print(f"Detecting python version\n{version}")
     generate_runtime(version)
